@@ -1,12 +1,10 @@
-To build:
+build:
 
-```
-docker build -t dockerana/statsd .
-```
+	docker build -t skuvault/statsd .
 
-To run:
-
-```
-docker run -d -P \
-           --name dockerana-statsd --link dockerana-carbon:dockerana-carbon-link dockerana/statsd
-```
+run:
+	1. create /usr/local/skuvault/statd
+	2. copy config.js to /usr/local/skuvault/statd/
+	3. tune up confing.js
+	4. copy upstart script to /etc/init
+	5. start service
