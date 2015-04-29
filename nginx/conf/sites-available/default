@@ -1,0 +1,14 @@
+# кривыми добрыми руками (c) Krasina15
+
+server {
+#  listen 80;
+#  server_name _;
+  proxy_intercept_errors off;
+  access_log  /var/log/nginx/default_access.log;
+  error_log   /var/log/nginx/default_error.log info;
+
+  location / {  # default route
+    return 405;
+  }
+
+}
