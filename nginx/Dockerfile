@@ -12,4 +12,4 @@ RUN apt-get -y install nginx-extras
 EXPOSE 80
 EXPOSE 443
 
-CMD ["/usr/sbin/nginx"]
+CMD ["/usr/sbin/nginx", "-c", "/etc/nginx/nginx.conf"]
