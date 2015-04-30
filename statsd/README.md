@@ -7,7 +7,7 @@
 prerun:
 1. create /usr/local/skuvault/statd
 2. create config.js in to /usr/local/skuvault/statd/
-
+```
 config.js:1
 
 {
@@ -20,10 +20,10 @@ config.js:1
 }
 
 3. tune up confing.js
-
+```
 run:
 4. (optional) create upstart script in to /etc/init/
-
+```
 statsd_container.config
 
 description "statsd container"
@@ -39,7 +39,7 @@ script
         REMOTE_S=/src/config
         $DOCKER run -v $LOCAL_S:$REMOTE_S -p 8125:8125/udp skuvault/statsd
 end script
-
+```
 5. start container
 
 other:

@@ -7,7 +7,7 @@
 prerun:
 1. create /usr/local/skuvault/graphite/conf, /usr/local/skuvault/graphite/data
 2. create local_settings.py  in to /usr/local/skuvault/graphite/conf
-
+```
 local_settings.py:
 
 SECRET_KEY = '1UNSAFE_DEFAULT'
@@ -32,12 +32,12 @@ DATABASES = {
         'PORT': ''
     }
 }
-
+```
 3. tune up local_settings.py
 
 run:
 4. (optional) create upstart script in to /etc/init/
-
+```
 graphite_container.config
 
 description "carbon container"
@@ -60,7 +60,7 @@ script
 -p 8000:8000 \
 skuvault/graphite
 end script
-
+```
 5. start container
 
 other:

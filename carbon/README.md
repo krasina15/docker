@@ -7,7 +7,7 @@
 prerun:
 1. create /usr/local/skuvault/carbon, /usr/local/skuvault/graphite/data
 2. create carbon.conf in to /usr/local/skuvault/carbon/
-
+```
 carbon.conf:
 
 [cache]
@@ -64,9 +64,9 @@ MAX_QUEUE_SIZE = 10000
 USE_FLOW_CONTROL = True
 MAX_DATAPOINTS_PER_MESSAGE = 500
 MAX_AGGREGATION_INTERVALS = 5
-
+```
 2. create storage-schemas.conf in to /usr/local/skuvault/carbon/
-
+```
 storage-schemas.conf:
 
 [carbon]
@@ -76,12 +76,12 @@ retentions = 60:90d
 pattern = .*
 retentions = 60s:1d
 
-
+```
 3. tune up carbon.conf and storage-schemas.conf
 
 run:
 4. (optional) create upstart script in to /etc/init/
-
+```
 carbon_container.config
 
 author "Sergey Tarasenko krasina15@gmail.com"
@@ -103,8 +103,7 @@ script
 -p 2003:2003 -p 2004:2004 -p 7002:7002 \
 skuvault/carbon
 end script
-
-
+```
 5. start container
 
 other:

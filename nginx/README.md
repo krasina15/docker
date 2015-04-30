@@ -11,7 +11,7 @@ prerun:
 
 run:
 4. (optional) create upstart script in to /etc/init/
-
+```
 nginx_container.config
 
 description "nginx container"
@@ -29,7 +29,7 @@ script
         REMOTE_NGINX_LOGS=/var/log/nginx
         $DOCKER run -v $LOCAL_NGINX_CONF:$REMOTE_NGINX_CONF -v $LOCAL_NGINX_LOGS:$REMOTE_NGINX_LOGS -p 80:80 -p 443:443 skuvault/nginx
 end script
-
+```
 5. start container
 
 other:
