@@ -1,6 +1,9 @@
+# кривыми добрыми руками, krasina15
+
 FROM ubuntu:trusty
 MAINTAINER Sergey Tarasenko <krasina15@gmail.com>
 
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -y update
 RUN apt-get -y install software-properties-common
 RUN apt-get -y install python-software-properties
@@ -9,8 +12,9 @@ RUN apt-get -y update
 
 RUN apt-get -y install nginx-extras
 
-EXPOSE 80
-EXPOSE 443
+VOLUME ["/etc/nginx", "/var/log/nginx"]
+
+EXPOSE 80 443
 
 CMD ["/usr/sbin/nginx", "-c", "/etc/nginx/nginx.conf"]
 
