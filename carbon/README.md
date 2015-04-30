@@ -5,6 +5,7 @@
 	docker build -t skuvault/carbon .
 
 prerun:
+
 1. create /usr/local/skuvault/carbon, /usr/local/skuvault/graphite/data
 2. create carbon.conf in to /usr/local/skuvault/carbon/
 ```
@@ -68,18 +69,17 @@ MAX_AGGREGATION_INTERVALS = 5
 2. create storage-schemas.conf in to /usr/local/skuvault/carbon/
 ```
 storage-schemas.conf:
-
 [carbon]
-pattern = ^carbon\.
-retentions = 60:90d
-[default_1min_for_1day]
+pattern = ^carbon\..*
+retentions = 1m:31d,10m:1y,1h:5y
+[default]
 pattern = .*
-retentions = 60s:1d
-
+retentions = 10s:8d,1m:31d,10m:1y,1h:5y
 ```
 3. tune up carbon.conf and storage-schemas.conf
 
 run:
+
 4. (optional) create upstart script in to /etc/init/
 ```
 carbon_container.config
@@ -107,6 +107,7 @@ end script
 5. start container
 
 other:
+
 6. mapping directories
 - /usr/local/skuvault/carbon/conf = /etc/carbon
 - /usr/local/skuvault/carbon/logs = /var/log/carbon
